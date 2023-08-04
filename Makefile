@@ -10,12 +10,14 @@ OBJS = $(SRCS:.cpp=.o)
 
 all: build
 
+run:
+	bin/main
+
 build: $(OBJS)
-	$(CC) $(OBJS) -o bin/main $(LIBS) $(LDLIBS) && start bin/main
+	$(CC) $(OBJS) -o bin/main $(LIBS) $(LDLIBS) && start bin/main && rm -f $(OBJS)
 
 %.o: %.cpp
 	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
-.PHONY: clean
 clean:
 	rm -f $(OBJS)
