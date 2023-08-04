@@ -19,5 +19,8 @@ build: $(OBJS)
 %.o: %.cpp
 	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
+test: test.cpp
+	$(CC) $(FLAGS) test.cpp -o out && ./out && rm -f out
+
 clean:
 	rm -f $(OBJS)
